@@ -47,12 +47,14 @@ class tv_column:
     
 fig,ax=plt.subplots(figsize=(10,5))
 sns.histplot(data=df['TV'],ax=ax) # type: ignore
+plt.title('TV Column Histo plot')
 plt.savefig("C:/Users/Archana Siripuram/Desktop/nareshit/plots/tv_histo.png")
 
 
 # distribution plot for TV column
-
-plt.plot(data=df['TV']) # type: ignore
+fig,ax=plt.subplots(figsize=(10,5))
+sns.displot(data=df['TV'],ax=ax,kind='kde') # type: ignore
+plt.title('TV Column Dist plot')
 plt.savefig("C:/Users/Archana Siripuram/Desktop/nareshit/plots/tv_dist.png")
 
 
@@ -60,7 +62,15 @@ plt.savefig("C:/Users/Archana Siripuram/Desktop/nareshit/plots/tv_dist.png")
 
 fig,ax=plt.subplots(figsize=(10,5))
 sns.boxplot(data=df['TV'],ax=ax) # type: ignore
+plt.title('TV Column Box plot')
 plt.savefig("C:/Users/Archana Siripuram/Desktop/nareshit/plots/tv_box.png")
+
+
+# Heatmap plot for TV and sales column
+
+sns.heatmap(df[['TV','sales']].corr(),annot=True,cmap='summer')
+plt.title('TV and Sales Heatmap')
+plt.savefig("C:/Users/Archana Siripuram/Desktop/nareshit/plots/tv_sales_heat.png")
 
 
     
@@ -106,12 +116,14 @@ class radio_column:
     
 fig,ax=plt.subplots(figsize=(10,5))
 sns.histplot(data=df['radio'],ax=ax) # type: ignore
+plt.title("Radio column Histo plot")
 plt.savefig("C:/Users/Archana Siripuram/Desktop/nareshit/plots/radio_histo.png")
 
 
 # distribution plot for Radio column
-
-plt.plot(data=df['radio']) # type: ignore
+fig,ax=plt.subplots(figsize=(10,5))
+sns.displot(data=df['radio'],ax=ax,kind='kde') # type: ignore
+plt.title("Radio column Dist plot")
 plt.savefig("C:/Users/Archana Siripuram/Desktop/nareshit/plots/radio_dist.png")
 
 
@@ -119,8 +131,14 @@ plt.savefig("C:/Users/Archana Siripuram/Desktop/nareshit/plots/radio_dist.png")
 
 fig,ax=plt.subplots(figsize=(10,5))
 sns.boxplot(data=df['radio'],ax=ax) # type: ignore
+plt.title("Radio column Box plot")
 plt.savefig("C:/Users/Archana Siripuram/Desktop/nareshit/plots/radio_box.png")
 
+# Heatmap plot for Radio and sales column
+
+sns.heatmap(df[['radio','sales']].corr(),annot=True,cmap='magma')
+plt.title("Radio column Heat Map")
+plt.savefig("C:/Users/Archana Siripuram/Desktop/nareshit/plots/radio_sales_heat.png")
 
 
 # Column newspaper
@@ -165,12 +183,14 @@ class newspaper_column:
     
 fig,ax=plt.subplots(figsize=(10,5))
 sns.histplot(data=df['newspaper'],ax=ax) # type: ignore
+plt.title("Newspaper Column Histo plot")
 plt.savefig("C:/Users/Archana Siripuram/Desktop/nareshit/plots/newspaper_histo.png")
 
 
 # distribution plot for newspaper column
-
-plt.plot(data=df['newspaper']) # type: ignore
+fig,ax=plt.subplots(figsize=(10,5))
+sns.displot(data=df['newspaper'],ax=ax,kind='kde') # type: ignore
+plt.title("Newspaper Column Dist plot")
 plt.savefig("C:/Users/Archana Siripuram/Desktop/nareshit/plots/newspaper_dist.png")
 
 
@@ -178,7 +198,17 @@ plt.savefig("C:/Users/Archana Siripuram/Desktop/nareshit/plots/newspaper_dist.pn
 
 fig,ax=plt.subplots(figsize=(10,5))
 sns.boxplot(data=df['newspaper'],ax=ax) # type: ignore
+plt.title("Newspaper Column Box plot")
 plt.savefig("C:/Users/Archana Siripuram/Desktop/nareshit/plots/newspaper_box.png")
 
+# Heatmap plot for Newspaper and sales column
 
+sns.heatmap(df[['newspaper','sales']].corr(),annot=True,cmap='tab20b')
+plt.title("Newspaper and Sales Heat Map")
+plt.savefig("C:/Users/Archana Siripuram/Desktop/nareshit/plots/newspaper_sales_heat.png")
+
+
+sns.heatmap(df.corr(),annot=True,cmap="PiYG")
+plt.title("Correlation Heat Mapr for Data set")
+plt.savefig("C:/Users/Archana Siripuram/Desktop/nareshit/plots/data_heat.png")
 
