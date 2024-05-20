@@ -6,13 +6,17 @@ import seaborn as sns
 from sklearn.linear_model import LinearRegression,Lasso,LassoCV,Ridge,RidgeCV,ElasticNet,ElasticNetCV
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import median_absolute_error,mean_squared_error
+from sklearn.preprocessing import PolynomialFeatures
+
+
+
+
+
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=9)
 
 
 
 # Linear Regression Model:-
-
-X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=9)
-
 
 
 class Linear_regression:
@@ -81,6 +85,59 @@ class Linear_regression:
         return self.lr_te_rmse
     
    
+
+
+
+# Polynomial Regression Model:-
+
+
+class Polynomial_regression:
+
+    poly=PolynomialFeatures(degree=2)
+    X_train_poly=poly.fit_transform(X_train)
+    X_test_poly=poly.fit_transform(X_test)
+    lr_poly=LinearRegression()
+    lr_poly.fit(X_train_poly,y_train)
+    poly_train_pred=lr_poly.predict(X_train_poly)
+    poly_test_pred=lr_poly.predict(X_test_poly)
+    poly_train_score=lr_poly.score(X_train_poly,y_train)
+    poly_test_score=lr_poly.score(X_test_poly,y_test)
+    poly_cross_val_score=cross_val_score(lr_poly,X,y,cv=5).mean()
+
+    def __init__(self,poly,X_train_poly,X_test_poly,lr_poly,poly_train_pred,poly_test_pred,poly_train_score,poly_test_score,poly_cross_val_score):
+
+        self.poly=poly
+        self.X_train_poly=X_train_poly
+        self.X_test_poly=X_test_poly
+        self.lr_poly=lr_poly
+        self.poly_train_pred=poly_train_pred
+        self.poly_test_pred=poly_test_pred
+        self.poly_train_score=poly_train_score
+        self.poly_test_score=poly_test_score
+        self.poly_cross_val_score=poly_cross_val_score
+
+    def poly_regression(self):
+        return self.poly
+    def poly_X_train_poly(self):
+        return self.X_train_poly
+    def poly_X_test_poly(self):
+        return self.X_test_poly
+    def poly_lr_poly(self):
+        return self.lr_poly
+    def poly_train_pred_regression(self):
+        return self.poly_train_pred
+    def poly_test_pred_regression(self):
+        return self.poly_test_pred
+    def poly_train_score_regression(self):
+        return self.poly_train_score
+    def poly_test_score_regression(self):
+        return self.poly_test_score
+    def poly_cross_val_score_regression(self):
+        return self.poly_cross_val_score
+    
+
+
+
 
 
 

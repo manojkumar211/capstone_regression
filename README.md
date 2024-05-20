@@ -135,6 +135,16 @@ linear test score : 0.9219805398478611
 linear Cross val : 0.8802087608205571
 
 ```
+# Polynomial Regression Algorithm:-
+```
+- By applying Polynomial Regression algorithm on 2 independent features (which is consider as Multiple Polynomial Regression), we got train & test scores those are respectively 0.982 & 0.986.
+- In Polynomial regression algorithm, we took the Degree value as 2.
+- As of now, We can consider this model as a best model with +/- 5% train and test score.
 
+Polynomial Training Score : 0.9820920389214675
+****************************************
+Polynomial Test Score : 0.9862620120730411
+
+```
 
 

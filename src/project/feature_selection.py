@@ -1,6 +1,7 @@
 from data_wrangling import df
 import statsmodels.formula.api as smf
 import pandas as pd
+from statsmodels.stats.outliers_influence import variance_inflation_factor
 
 X1=df.iloc[:,[4,5,6]]
 y1=df['sales']
@@ -15,7 +16,6 @@ smf_model1=smf.ols('y~X',data=df).fit()
 print(smf_model1.summary())
 
 
-from statsmodels.stats.outliers_influence import variance_inflation_factor
 
 class vif_model:
 
