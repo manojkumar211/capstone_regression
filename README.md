@@ -57,5 +57,53 @@
 - In wrapping method we applyed the OLS method.
 - After applying the wrapping method, we abserve the relationship between independent features and dependent feature. The newspaper column is not having the relationship with dependent features which means the p-value is 0.835, nothing but we reject the null hypothesis.
 - We got R2 value is 0.888 and adj-R2 value is 0.886.
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.888
+Model:                            OLS   Adj. R-squared:                  0.887
+Method:                 Least Squares   F-statistic:                     520.1
+Date:                Mon, 20 May 2024   Prob (F-statistic):           4.96e-93
+Time:                        15:14:04   Log-Likelihood:                -1776.0
+No. Observations:                 200   AIC:                             3560.
+Df Residuals:                     196   BIC:                             3573.
+Df Model:                           3
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept   2990.3417    404.940      7.385      0.000    2191.742    3788.941
+X[0]           0.0145      0.000     31.253      0.000       0.014       0.015
+X[1]           0.5515      0.026     21.093      0.000       0.500       0.603
+X[2]           0.4635      2.220      0.209      0.835      -3.914       4.841
+==============================================================================
+Omnibus:                       57.946   Durbin-Watson:                   2.074
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              139.267
+Skew:                          -1.290   Prob(JB):                     5.74e-31
+Kurtosis:                       6.171   Cond. No.                     1.67e+06
+==============================================================================
+
 - By applying OLS method on 2 independent features, we got R2 value is 0.888 and adj-R2 value is 0.887.
+
+==============================================================================
+Dep. Variable:                     y1   R-squared:                       0.888
+Model:                            OLS   Adj. R-squared:                  0.887
+Method:                 Least Squares   F-statistic:                     783.9
+Date:                Mon, 20 May 2024   Prob (F-statistic):           1.60e-94
+Time:                        15:14:04   Log-Likelihood:                -1776.0
+No. Observations:                 200   AIC:                             3558.
+Df Residuals:                     197   BIC:                             3568.
+Df Model:                           2
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept   3045.1445    307.602      9.900      0.000    2438.530    3651.759
+X1[0]          0.0145      0.000     31.351      0.000       0.014       0.015
+X1[1]          0.5532      0.025     22.288      0.000       0.504       0.602
+==============================================================================
+Omnibus:                       58.454   Durbin-Watson:                   2.079
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              142.245
+Skew:                          -1.296   Prob(JB):                     1.29e-31
+Kurtosis:                       6.218   Cond. No.                     1.27e+06
+==============================================================================
+
 ```
