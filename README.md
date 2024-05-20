@@ -127,6 +127,13 @@ Kurtosis:                       6.218   Cond. No.                     1.27e+06
 - By applying Linear Regression algorithm on 2 independent features (which is consider as Multiple Linear Regression), we got train & test scores those are respectively 0.879 & 0.921.
 - In Linear regression algorithm, we took the Random State value as 9.
 - As of now, We can consider this model as a best model with +/- 5% train and test score. 
+
+linear train score : 0.8797156692297134
+****************************************
+linear test score : 0.9219805398478611
+****************************************
+linear Cross val : 0.8802087608205571
+
 ```
 
 
