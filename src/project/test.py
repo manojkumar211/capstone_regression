@@ -18,3 +18,4 @@ print("**"*20)
 print(df['newspaper'].skew()) # type: ignore
 
 print(round(4.615335331740764e-06))
+

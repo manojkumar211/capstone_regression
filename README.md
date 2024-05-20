@@ -31,3 +31,31 @@
 - The Newspapere column having some Outliers as well.
 - Newspaper and Sales ahving 23% of Correlation.
 ```
+
+
+## EDA:-
+
+```
+- In EDA process, We find some outliers in Newspaper column and replace them with lower limit and upper limit value.
+- We did not find any null values in any one of the columns.
+```
+
+## Data Cleaning:-
+```
+- Data Cleaning process, We replace the outliers with lower limit and upper limit value.
+```
+
+## Data Wrangling:-
+```
+- We find some skewness in all cloumns and applyed feature transformation technique to make the dasta into symmetrical distribution.
+- For regression model we wont apply the feature scaling technique. With applying and without applying the feature scaling technique we will get same result for regression model.
+```
+
+## Feature Selection:-
+```
+- In feature selection, we apply the wrapping method to find out the relationship between all 3 independent features and dependent feature based on p-values as well as we will get the R2 and adj-R2 values by applying the wrapping method.
+- In wrapping method we applyed the OLS method.
+- After applying the wrapping method, we abserve the relationship between independent features and dependent feature. The newspaper column is not having the relationship with dependent features which means the p-value is 0.835, nothing but we reject the null hypothesis.
+- We got R2 value is 0.888 and adj-R2 value is 0.886.
+- By applying OLS method on 2 independent features, we got R2 value is 0.888 and adj-R2 value is 0.887.
+```
