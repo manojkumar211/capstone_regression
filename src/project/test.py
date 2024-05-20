@@ -1,6 +1,7 @@
 from data import data_des
-from src.project.eda import tv_column,radio_column,newspaper_column
+from eda import tv_column,radio_column,newspaper_column
 from data import df
+from linear_model import Linear_regression
 
 
 
@@ -19,3 +20,23 @@ print(df['newspaper'].skew()) # type: ignore
 
 print(round(4.615335331740764e-06))
 
+print('linear model :',Linear_regression.linear_model) # type: ignore
+print("**"*20)
+print('linear train score :',Linear_regression.train_score) # type: ignore
+print("**"*20)
+print('linear test score :',Linear_regression.test_score) # type: ignore
+print("**"*20)
+print('linear Cross val :',Linear_regression.cross_val) # type: ignore
+print("**"*20)
+print('MAE Train :',Linear_regression.lr_tr_mae) # type: ignore
+print("**"*20)
+print('MSE Train :',Linear_regression.lr_tr_mse) # type: ignore
+print("**"*20)
+print('RMSE Train :',Linear_regression.lr_tr_rmse) # type: ignore
+print("**"*20)
+print('MAE Test :',Linear_regression.lr_te_mae) # type: ignore
+print("**"*20)
+print('MSE Test :',Linear_regression.lr_te_msr) # type: ignore
+print("**"*20)
+print('RMSE Test :',Linear_regression.lr_te_rmse) # type: ignore
+print("**"*20)

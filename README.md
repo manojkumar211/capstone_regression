@@ -107,3 +107,27 @@ Kurtosis:                       6.218   Cond. No.                     1.27e+06
 ==============================================================================
 
 ```
+
+## Feature Engineering:-
+```
+- In feature engineering, we are not going to apply PCA method to reduce the size of the data. which means reduce the number of features.
+```
+
+## VIF:-
+```
+- Applyed VIF method on 2 independent features but we did not find any multicollinearity.
+
+        VIF    features
+0  2.269759    tv_power
+1  2.269759  radio_root
+
+```
+# Linear regression Algorithm:-
+```
+- By applying Linear Regression algorithm on 2 independent features (which is consider as Multiple Linear Regression), we got train & test scores those are respectively 0.879 & 0.921.
+- In Linear regression algorithm, we took the Random State value as 9.
+- As of now, We can consider this model as a best model with +/- 5% train and test score. 
+```
+
+
+
