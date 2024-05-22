@@ -1,7 +1,7 @@
 from data import data_des
 from eda import tv_column,radio_column,newspaper_column
 from data import df
-from model import Linear_regression,Polynomial_regression
+from models import Linear_regression,Polynomial_regression
 
 
 
