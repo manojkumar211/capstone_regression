@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.linear_model import LinearRegression,Lasso,LassoCV,Ridge,RidgeCV,ElasticNet,ElasticNetCV
 from sklearn.model_selection import train_test_split, cross_val_score
-from sklearn.metrics import median_absolute_error,mean_squared_error
+from sklearn.metrics import mean_absolute_error, median_absolute_error,mean_squared_error
 from sklearn.preprocessing import PolynomialFeatures
 
 
@@ -141,13 +141,13 @@ class Polynomial_regression(best_degree):
     poly_tr_rmsc=np.sqrt(mean_squared_error(y_train,poly_train_pred))
     poly_te_mae=median_absolute_error(y_test,poly_test_pred)
     poly_te_mse=mean_squared_error(y_test,poly_test_pred)
-    poly_te_rsmc=np.sqrt(mean_squared_error(y_test,poly_test_pred))
+    poly_te_rsme=np.sqrt(mean_squared_error(y_test,poly_test_pred))
     
 
     try:
 
         def __init__(self,poly_best_degree_train,poly_best_degree_test,poly,X_train_poly,X_test_poly,lr_poly,poly_train_pred,poly_test_pred,poly_train_score,poly_test_score,poly_cross_val_score,
-                     poly_tr_mae,poly_tr_mse,poly_tr_rmsc,poly_te_mae,poly_te_mse,poly_te_rsmc):
+                     poly_tr_mae,poly_tr_mse,poly_tr_rmsc,poly_te_mae,poly_te_mse,poly_te_rsme):
             
             self.poly_best_degree_train=poly_best_degree_train
             self.poly_best_degree_test=poly_best_degree_test
@@ -165,7 +165,7 @@ class Polynomial_regression(best_degree):
             self.poly_tr_rms=poly_tr_rmsc
             self.poly_te_mae=poly_te_mae
             self.poly_te_mse=poly_te_mse
-            self.poly_te_rsmc=poly_te_rsmc
+            self.poly_te_rsme=poly_te_rsme
             
 
         def poly_best_degree_test_value(self):
@@ -201,14 +201,14 @@ class Polynomial_regression(best_degree):
         def poly_test_mse_regression(self):
             return self.poly_te_mse
         def poly_test_rmse_regression(self):
-            return self.poly_te_rsmc
+            return self.poly_te_rsme
         
     except Exception as e:
         print(e)
 
         
     
-# Lasso Regression Method:-
+# Lasso Regression Model:-
 
 
 class Lassocv_regression:
@@ -303,6 +303,98 @@ class Lasso_regression(Lassocv_regression):
 
         
 
+# Ridge Regression model:-
+
+
+class Ridgecv_regression:
+    
+    alpha_ridgecv=np.random.uniform(low=0,high=10,size=(50,))
+    ridgecv=RidgeCV(alphas=alpha_ridgecv,cv=5)
+    ridgecv.fit(X_train,y_train)
+    alpha_cv=ridgecv.alpha_
+
+    try:
+
+        def __init__(self,ridgecv,alpha_cv):
+
+            self.ridgecv=ridgecv
+            self.alpha_cv=alpha_cv
+
+        def ridgecv_regression(self):
+            return self.ridgecv
+        def ridgecv_alpha(self):
+            return self.alpha_cv
+        
+    except Exception as e:
+        print(e)
+        
+
+class Ridge_regression(Ridgecv_regression):
+
+    ridge_model=Ridge(Ridgecv_regression.alpha_cv) # type: ignore
+    ridge_model.fit(X_train,y_train)
+    ridge_train_pred=ridge_model.predict(X_train)
+    ridge_test_pred=ridge_model.predict(X_test)
+    ridge_tr_score=ridge_model.score(X_train,y_train)
+    ridge_te_score=ridge_model.score(X_test,y_test)
+    ridge_train_mae=mean_absolute_error(y_train,ridge_train_pred)
+    ridge_train_mse=mean_squared_error(y_train,ridge_train_pred)
+    ridge_train_rmse=np.sqrt(mean_squared_error(y_train,ridge_train_pred))
+    ridge_test_mae=mean_absolute_error(y_test,ridge_test_pred)
+    ridge_test_mse=mean_squared_error(y_test,ridge_test_pred)
+    ridge_test_rmse=np.sqrt(mean_squared_error(y_test,ridge_test_pred))
+
+
+    try:
+
+        def __init__(self,ridgecv,alpha_cv,ridge_model,ridge_train_pred,ridge_test_pred,ridge_tr_score,ridge_te_score,ridge_train_mae,ridge_train_mse,
+                    ridge_train_rmse,ridge_test_mae,ridge_test_mse,ridge_test_rmse):
+            
+            self.ridgecv=ridgecv
+            self.alpha_cv=alpha_cv
+            self.ridge_model=ridge_model
+            self.ridge_train_pred=ridge_train_pred
+            self.ridge_test_pred=ridge_test_pred
+            self.ridge_tr_score=ridge_tr_score
+            self.ridge_te_score=ridge_te_score
+            self.ridge_train_mae=ridge_train_mae
+            self.ridge_train_mse=ridge_train_mse
+            self.ridge_train_rmse=ridge_train_rmse
+            self.ridge_test_mae=ridge_test_mae
+            self.ridge_test_mse=ridge_test_mse
+            self.ridge_test_rmse=ridge_test_rmse
+
+        def ridgecv_regression_model(self):
+            return super().ridgecv
+        def ridgecv_regression_alpha(self):
+            return super().alpha_cv
+        def ridge_model_regression(self):
+            return self.ridge_model
+        def ridge_train_pred_regression(self):
+            return self.ridge_train_pred
+        def ridge_test_pred_regression(self):
+            return self.ridge_test_pred
+        def ridge_train_score_regression(self):
+            return self.ridge_tr_score
+        def ridge_test_score_regression(self):
+            return self.ridge_te_score
+        def ridge_train_mae_regression(self):
+            return self.ridge_train_mae
+        def ridge_train_mse_regression(self):
+            return self.ridge_train_mse
+        def ridge_train_rmse_regression(self):
+            return self.ridge_train_rmse
+        def ridge_test_mae_regression(self):
+            return self.ridge_test_mae
+        def ridge_test_mse_regression(self):
+            return self.ridge_test_mse
+        def ridge_test_rmse_regression(self):
+            return self.ridge_test_rmse
+        
+    except Exception as e:
+        print(e)
+
+                                    
 
 
 

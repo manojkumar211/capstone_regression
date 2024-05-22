@@ -2,7 +2,7 @@ import numpy as np
 from data import data_des
 from eda import tv_column,radio_column,newspaper_column
 from data import df
-from models import Linear_regression,Polynomial_regression,Lasso_regression,Lassocv_regression
+from models import Linear_regression,Polynomial_regression,Lasso_regression,Lassocv_regression,Ridge_regression
 
 
 
@@ -56,3 +56,11 @@ print("**"*20)
 print('Best degree train value :',np.argmax(Polynomial_regression.poly_best_degree_train)) # type: ignore
 print("**"*20)
 print('Best degree test value :',np.argmax(Polynomial_regression.poly_best_degree_test)) # type: ignore
+print("**"*20)
+print('Ridge alpha value :',Ridge_regression.alpha_cv) # type: ignore
+print("**"*20)
+print('Ridge Train Score :',Ridge_regression.ridge_tr_score) # type: ignore
+print("**"*20)
+print('Ridge Test Score :',Ridge_regression.ridge_te_score)   # type: ignore
+print("**"*20)
+
