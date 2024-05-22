@@ -96,8 +96,35 @@ class Linear_regression:
 
 # Polynomial Regression Model:-
 
+class best_degree:
 
-class Polynomial_regression:
+    poly_best_degree_train = []
+    poly_best_degree_test=[]
+
+    for i in range(0,10):
+        X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=9)
+        poly=PolynomialFeatures(degree=i)
+        X_train_poly=poly.fit_transform(X_train)
+        X_test_poly=poly.fit_transform(X_test)
+        lr=LinearRegression()
+        lr.fit(X_train_poly,y_train)
+        lr_train_pred=lr.predict(X_train_poly)
+        lr_test_pred=lr.predict(X_test_poly)
+        poly_best_degree_train.append(lr.score(X_train_poly,y_train))
+        poly_best_degree_test.append(lr.score(X_test_poly,y_test))
+
+    def __init__(self,poly_best_degree_train,poly_best_degree_test):
+        
+        self.poly_best_degree_train=poly_best_degree_train
+        self.poly_best_degree_test=poly_best_degree_test
+
+    def poly_best_degree_train_value(self):
+        return self.poly_best_degree_train
+    def poly_best_degree_test_value(self):
+        return self.poly_best_degree_test
+    
+
+class Polynomial_regression(best_degree):
 
     poly=PolynomialFeatures(degree=3)
     X_train_poly=poly.fit_transform(X_train)
@@ -119,9 +146,11 @@ class Polynomial_regression:
 
     try:
 
-        def __init__(self,poly,X_train_poly,X_test_poly,lr_poly,poly_train_pred,poly_test_pred,poly_train_score,poly_test_score,poly_cross_val_score,
+        def __init__(self,poly_best_degree_train,poly_best_degree_test,poly,X_train_poly,X_test_poly,lr_poly,poly_train_pred,poly_test_pred,poly_train_score,poly_test_score,poly_cross_val_score,
                      poly_tr_mae,poly_tr_mse,poly_tr_rmsc,poly_te_mae,poly_te_mse,poly_te_rsmc):
-
+            
+            self.poly_best_degree_train=poly_best_degree_train
+            self.poly_best_degree_test=poly_best_degree_test
             self.poly=poly
             self.X_train_poly=X_train_poly
             self.X_test_poly=X_test_poly
@@ -139,6 +168,10 @@ class Polynomial_regression:
             self.poly_te_rsmc=poly_te_rsmc
             
 
+        def poly_best_degree_test_value(self):
+            return super().poly_best_degree_test
+        def poly_best_degree_train_value(self):
+            return super().poly_best_degree_train
         def poly_regression(self):
             return self.poly
         def poly_X_train_poly(self):

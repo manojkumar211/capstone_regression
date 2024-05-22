@@ -1,3 +1,4 @@
+import numpy as np
 from data import data_des
 from eda import tv_column,radio_column,newspaper_column
 from data import df
@@ -51,3 +52,7 @@ print("**"*20)
 print('Lasso Test Score :',Lasso_regression.lasso_test_score)   # type: ignore
 print("**"*20)
 print('Lasso alpha value :',Lasso_regression.alpha_lasso_cv) # type: ignore
+print("**"*20)
+print('Best degree train value :',np.argmax(Polynomial_regression.poly_best_degree_train)) # type: ignore
+print("**"*20)
+print('Best degree test value :',np.argmax(Polynomial_regression.poly_best_degree_test)) # type: ignore
