@@ -197,3 +197,16 @@ ElasticNet Test Score : 0.9154441355233094
 ****************************************
 
 ```
+
+# Final Conclusion:-
+
+```
+- After apply all the Regression Algorithms, we finally Concluded as a Polynomial Regression is the best algorithm for this dataset.
+- By applying Polynomial Regression, we got train and test scores with respectively 0.989 and 0.990
+
+Polynomial Training Score : 0.9892136035502934
+****************************************
+Polynomial Test Score : 0.990922787724973
+****************************************
+
+```
