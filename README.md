@@ -47,7 +47,7 @@
 
 ## Data Wrangling:-
 ```
-- We find some skewness in all cloumns and applyed feature transformation technique to make the dasta into symmetrical distribution.
+- We find some skewness in all cloumns and applyed feature transformation technique to make the data into symmetrical distribution.
 - For regression model we wont apply the feature scaling technique. With applying and without applying the feature scaling technique we will get same result for regression model.
 ```
 
