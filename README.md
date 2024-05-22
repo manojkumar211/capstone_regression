@@ -170,7 +170,7 @@ Lasso Test Score : 0.9186167470679957
 ```
 - We applying RidgeCV and find the alpha value.
 
-Ridge alpha value : 0.041910860718654686
+Ridge alpha value : 0.006828402737958372
 ****************************************
 
 - By applying Ridge Regression algorithm on 2 independent features, we got train & test scores with respect to the 0.879 & 0.921.

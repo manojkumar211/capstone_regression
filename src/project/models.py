@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.linear_model import LinearRegression,Lasso,LassoCV,Ridge,RidgeCV,ElasticNet,ElasticNetCV
 from sklearn.model_selection import train_test_split, cross_val_score
-from sklearn.metrics import mean_absolute_error, median_absolute_error,mean_squared_error
+from sklearn.metrics import mean_absolute_error,mean_squared_error
 from sklearn.preprocessing import PolynomialFeatures
 
 
@@ -30,10 +30,10 @@ class Linear_regression:
     train_score=linear_model.score(X_train,y_train) # type: ignore  
     test_score=linear_model.score(X_test,y_test) # type: ignore
     cross_val=cross_val_score(linear_model,X,y,cv=5).mean() # type: ignore
-    lr_tr_mae=median_absolute_error(y_train,y_tr_pred) # type: ignore
+    lr_tr_mae=mean_absolute_error(y_train,y_tr_pred) # type: ignore
     lr_tr_mse=mean_squared_error(y_train,y_tr_pred) # type: ignore
     lr_tr_rmse=np.sqrt(mean_squared_error(y_train,y_tr_pred)) # type: ignore
-    lr_te_mae=median_absolute_error(y_test,y_te_pred) # type: ignore
+    lr_te_mae=mean_absolute_error(y_test,y_te_pred) # type: ignore
     lr_te_msr=mean_squared_error(y_test,y_te_pred) # type: ignore
     lr_te_rmse=np.sqrt(mean_squared_error(y_test,y_te_pred)) # type: ignore
 
@@ -136,10 +136,10 @@ class Polynomial_regression(best_degree):
     poly_train_score=lr_poly.score(X_train_poly,y_train)
     poly_test_score=lr_poly.score(X_test_poly,y_test)
     poly_cross_val_score=cross_val_score(lr_poly,X,y,cv=5).mean()
-    poly_tr_mae=median_absolute_error(y_train,poly_train_pred)
+    poly_tr_mae=mean_absolute_error(y_train,poly_train_pred)
     poly_tr_mse=mean_squared_error(y_train,poly_train_pred)
     poly_tr_rmsc=np.sqrt(mean_squared_error(y_train,poly_train_pred))
-    poly_te_mae=median_absolute_error(y_test,poly_test_pred)
+    poly_te_mae=mean_absolute_error(y_test,poly_test_pred)
     poly_te_mse=mean_squared_error(y_test,poly_test_pred)
     poly_te_rsme=np.sqrt(mean_squared_error(y_test,poly_test_pred))
     
@@ -241,10 +241,10 @@ class Lasso_regression(Lassocv_regression):
     lasso_train_score=lasso_model.score(X_train,y_train)
     lasso_test_score=lasso_model.score(X_test,y_test)
     lasso_cross_val_score=cross_val_score(lasso_model,X,y,cv=5).mean()
-    lasso_tr_mae=median_absolute_error(y_train,lasso_train_pred)
+    lasso_tr_mae=mean_absolute_error(y_train,lasso_train_pred)
     lasso_tr_mse=mean_squared_error(y_train,lasso_train_pred)
     lasso_tr_rmse=np.sqrt(mean_squared_error(y_train,lasso_train_pred))
-    lasso_te_mae=median_absolute_error(y_test,lasso_test_pred)
+    lasso_te_mae=mean_absolute_error(y_test,lasso_test_pred)
     lasso_te_mse=mean_squared_error(y_test,lasso_test_pred)
     lasso_te_rmse=np.sqrt(mean_squared_error(y_test,lasso_test_pred))
 
@@ -395,6 +395,102 @@ class Ridge_regression(Ridgecv_regression):
         print(e)
 
                                     
+# ElasticNet Regression Algorithm:-
+
+class ElasticNet_cv:
+
+    elastic_cv=ElasticNetCV(alphas=None,cv=5)
+    elastic_cv.fit(X_train, y_train)
+    elastic_alpha=elastic_cv.alpha_
+    elastic_l1=elastic_cv.l1_ratio_
+
+    try:
+
+        def __init__(self,elastic_cv,elastic_alpha,elastic_l1):
+
+            self.elastic_cv = elastic_cv
+            self.elastic_alpha = elastic_alpha
+            self.elastic_l1 = elastic_l1
+
+        def elastic_cv_regression(self):
+            return self.elastic_cv
+        def elastic_alpha_regression(self):
+            return self.elastic_alpha
+        def elastic_l1_regression(self):
+            return self.elastic_l1
+        
+    except Exception as e:
+        print(e)
+
+class ElasticNet_regression(ElasticNet_cv):
+
+    elastic_model=ElasticNet(alpha=ElasticNet_cv.elastic_alpha,l1_ratio=ElasticNet_cv.elastic_l1) # type: ignore
+    elastic_model.fit(X_train,y_train)
+    elastic_train_pred=elastic_model.predict(X_train)
+    elastic_test_pred=elastic_model.predict(X_test)
+    elastic_tr_score=elastic_model.score(X_train,y_train)
+    elastic_te_score=elastic_model.score(X_test,y_test)
+    elastic_train_mae=mean_absolute_error(y_train,elastic_train_pred)
+    elastic_train_mse=mean_squared_error(y_train,elastic_train_pred)
+    elastic_train_rmse=np.sqrt(mean_squared_error(y_train,elastic_train_pred))
+    elastic_test_mae=mean_absolute_error(y_test,elastic_test_pred)
+    elastic_test_mse=mean_squared_error(y_test,elastic_test_pred)
+    elastic_test_rmse=np.sqrt(mean_squared_error(y_test,elastic_test_pred))
+
+    try:
+
+        def __init__(self,elastic_cv,elastic_alpha,elastic_l1,elastic_model,elastic_train_pred,elastic_test_pred,elastic_tr_score,elastic_te_score,
+                    elastic_train_mae,elastic_train_mse,elastic_train_rmse,elastic_test_mae,elastic_test_mse,elastic_test_rmse):
+            
+            self.elastic_cv=elastic_cv
+            self.elastic_alpha=elastic_alpha
+            self.elastic_l1=elastic_l1
+            self.elastic_model=elastic_model
+            self.elastic_train_pred=elastic_train_pred
+            self.elastic_test_pred=elastic_test_pred
+            self.elastic_tr_score=elastic_tr_score
+            self.elastic_te_score=elastic_te_score
+            self.elastic_train_mae=elastic_train_mae
+            self.elastic_train_mse=elastic_train_mse
+            self.elastic_train_rmse=elastic_train_rmse
+            self.elastic_test_mae=elastic_test_mae
+            self.elastic_test_mse=elastic_test_mse
+            self.elastic_test_rmse=elastic_test_rmse
+
+
+        def elastic_cv_regression(self):
+            return super().elastic_cv
+        def elastic_alpha_regression(self):
+            return super().elastic_alpha
+        def elastic_l1_regression(self):
+            return super().elastic_l1
+        def elastic_model_regression(self):
+            return self.elastic_model
+        def elastic_train_pred_regression(self):
+            return self.elastic_train_pred
+        def elastic_test_pred_regression(self):
+            return self.elastic_test_pred
+        def elastic_train_score_regression(self):
+            return self.elastic_tr_score
+        def elastic_test_score_regression(self):
+            return self.elastic_te_score
+        def elastic_train_mae_regression(self):
+            return self.elastic_train_mae
+        def elastic_train_mse_regression(self):
+            return self.elastic_train_mse
+        def elastic_train_rmse_regression(self):
+            return self.elastic_train_rmse
+        def elastic_test_mae_regression(self):
+            return self.elastic_test_mae
+        def elastic_test_mse_regression(self):
+            return self.elastic_test_mse
+        def elastic_test_rmse_regression(self):
+            return self.elastic_test_rmse
+        
+    except Exception as e:
+        print(e)
+
+        
 
 
 
