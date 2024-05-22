@@ -126,7 +126,7 @@ class best_degree:
 
 class Polynomial_regression(best_degree):
 
-    poly=PolynomialFeatures(degree=3)
+    poly=PolynomialFeatures(degree=np.argmax(best_degree.poly_best_degree_train)) # type: ignore
     X_train_poly=poly.fit_transform(X_train)
     X_test_poly=poly.fit_transform(X_test)
     lr_poly=LinearRegression()
