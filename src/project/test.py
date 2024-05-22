@@ -2,7 +2,7 @@ import numpy as np
 from data import data_des
 from eda import tv_column,radio_column,newspaper_column
 from data import df
-from models import Linear_regression,Polynomial_regression,Lasso_regression,Lassocv_regression,Ridge_regression
+from models import Linear_regression,Polynomial_regression,Lasso_regression,Lassocv_regression,Ridge_regression,ElasticNet_regression
 
 
 
@@ -63,4 +63,9 @@ print('Ridge Train Score :',Ridge_regression.ridge_tr_score) # type: ignore
 print("**"*20)
 print('Ridge Test Score :',Ridge_regression.ridge_te_score)   # type: ignore
 print("**"*20)
-
+print('ElasticNet alpha value :',ElasticNet_regression.elastic_alpha) # type: ignore
+print("**"*20)
+print('ElasticNet Train Score :',ElasticNet_regression.elastic_tr_score) # type: ignore
+print("**"*20)
+print('ElasticNet Test Score :',ElasticNet_regression.elastic_te_score)   # type: ignore
+print("**"*20)

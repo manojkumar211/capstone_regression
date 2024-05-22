@@ -181,3 +181,19 @@ Ridge Test Score : 0.9219805398477006
 ****************************************
 
 ```
+
+# ElasticNet Regression Algorithm:-
+```
+- We applying RidgeCV and find the alpha value.
+
+ElasticNet alpha value : 2194106.443272531
+****************************************
+
+- By applying Ridge Regression algorithm on 2 independent features, we got train & test scores with respect to the 0.875 & 0.915.
+
+ElasticNet Train Score : 0.8757857304930126
+****************************************
+ElasticNet Test Score : 0.9154441355233094
+****************************************
+
+```
