@@ -147,4 +147,16 @@ Polynomial Test Score : 0.990922787724973
 
 ```
 
+# Lasso Regression Algorithm:-
+```
+- Applying LassoCV, we find the alpha value.
 
+Lasso alpha value : 1097053.2216362655
+
+- By applying Lasso Regression algorithm on 2 independent features, we got train & test scores with respect to the 0.877 & 0.918.
+
+Lasso Train Score : 0.8779329200102106
+****************************************
+Lasso Test Score : 0.9186167470679957
+
+```

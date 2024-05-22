@@ -1,7 +1,7 @@
 from data import data_des
 from eda import tv_column,radio_column,newspaper_column
 from data import df
-from models import Linear_regression,Polynomial_regression
+from models import Linear_regression,Polynomial_regression,Lasso_regression,Lassocv_regression
 
 
 
@@ -43,3 +43,11 @@ print("**"*20)
 print('Polynomial Training Score :',Polynomial_regression.poly_train_score) # type: ignore
 print("**"*20)
 print('Polynomial Test Score :',Polynomial_regression.poly_test_score) # type: ignore
+print("**"*20)
+print('Lasso CV value :',Lassocv_regression.alpha_lasso_cv) # type: ignore
+print("**"*20)
+print('Lasso Train Score :',Lasso_regression.lasso_train_score) # type: ignore
+print("**"*20)
+print('Lasso Test Score :',Lasso_regression.lasso_test_score)   # type: ignore
+print("**"*20)
+print('Lasso alpha value :',Lasso_regression.alpha_lasso_cv) # type: ignore
