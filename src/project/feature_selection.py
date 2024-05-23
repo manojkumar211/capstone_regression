@@ -18,22 +18,42 @@ print(smf_model1.summary())
 
 
 class vif_model:
+        
+    try:
 
-    vif=pd.DataFrame()
+        vif=pd.DataFrame()
 
-    vif['VIF']=[variance_inflation_factor(X.values,i) for i in range(X.shape[1])]
+        vif['VIF']=[variance_inflation_factor(X.values,i) for i in range(X.shape[1])]
 
-    vif['features']=X.columns
+        vif['features']=X.columns
 
-    def __init__(self,VIF,features):
+    except Exception as e:
+        print(e)
 
-        self.VIF=VIF
-        self.features=features
+    try:
 
-    def vif_values(self):
-        return self.VIF
-    def vif_features(self):
-        return self.features
+        def __init__(self,VIF,features):
+                
+            try:
+
+                self.VIF=VIF
+                self.features=features
+
+            except Exception as e:
+                print(e)
+
+        try:
+
+            def vif_values(self):
+                return self.VIF
+            def vif_features(self):
+                return self.features
+            
+        except Exception as e:
+            print(e)
+        
+    except Exception as e:
+        print(e)
     
 print(vif_model.vif)
 

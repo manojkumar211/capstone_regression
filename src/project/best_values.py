@@ -24,8 +24,8 @@ for i in range(0,20):
     lr_best_train.append(lr.score(X_train,y_train))
     lr_best_test.append(lr.score(X_test,y_test))
     
-print('Best Train Random State Value :',np.argmax(lr_best_train))
-print('Best Test Random State Value :',np.argmax(lr_best_test))
+"""print('Best Train Random State Value :',np.argmax(lr_best_train))
+print('Best Test Random State Value :',np.argmax(lr_best_test))"""
 
 
 poly_best_degree_train = []
@@ -43,6 +43,6 @@ for i in range(0,10):
     poly_best_degree_train.append(lr.score(X_train_poly,y_train))
     poly_best_degree_test.append(lr.score(X_test_poly,y_test))
 
-print('Best Train Degree Value :',np.argmax(poly_best_degree_train))
+"""print('Best Train Degree Value :',np.argmax(poly_best_degree_train))
 
-print('Best Test Degree Value :',np.argmax(poly_best_degree_test))
+print('Best Test Degree Value :',np.argmax(poly_best_degree_test))"""

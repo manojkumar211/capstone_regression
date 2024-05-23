@@ -152,30 +152,40 @@ class newspaper_column:
     newspaper_skew=df['newspaper'].skew()
     newspaper_std=df['newspaper'].std(ddof=0)
 
-
-    def __init__(self,newspaper_dtype,newspaper_des,newspaper_null,newspaper_skew,newspaper_std):
-
-        self.newspaper_dtype=newspaper_dtype
-        self.newspaper_des=newspaper_des
-        self.newspaper_null=newspaper_null
-        self.newspaper_skew=newspaper_skew
-        self.newspaper_std=newspaper_std
+    try:
 
 
-    def newspaper_column_type(self):
-        return self.newspaper_dtype
-    
-    def newspaper_column_des(self):
-        return self.newspaper_des
-    
-    def newspaper_column_nullvalue(self):
-        return self.newspaper_null
-    
-    def newspaper_column_skew(self):
-        return self.newspaper_skew
-    
-    def newspaper_column_std(self):
-        return self.newspaper_std
+        def __init__(self,newspaper_dtype,newspaper_des,newspaper_null,newspaper_skew,newspaper_std):
+                
+            try:
+
+                self.newspaper_dtype=newspaper_dtype
+                self.newspaper_des=newspaper_des
+                self.newspaper_null=newspaper_null
+                self.newspaper_skew=newspaper_skew
+                self.newspaper_std=newspaper_std
+
+            except Exception as e:
+                print(e)
+
+        try:
+
+            def newspaper_column_type(self):
+                return self.newspaper_dtype
+            def newspaper_column_des(self):
+                return self.newspaper_des
+            def newspaper_column_nullvalue(self):
+                return self.newspaper_null
+            def newspaper_column_skew(self):
+                return self.newspaper_skew
+            def newspaper_column_std(self):
+                return self.newspaper_std
+            
+        except Exception as e:
+            print(e)
+        
+    except Exception as e:
+        print(e)
     
 
 

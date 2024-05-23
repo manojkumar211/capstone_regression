@@ -156,7 +156,8 @@ Polynomial Test Score : 0.990922787724973
 ```
 - We applying LassoCV and find the alpha value.
 
-Lasso alpha value : 1097053.2216362655
+Lasso alpha value : 1043902.3534347465
+****************************************
 
 - By applying Lasso Regression algorithm on 2 independent features, we got train & test scores with respect to the 0.877 & 0.918.
 
@@ -186,12 +187,12 @@ Ridge Test Score : 0.9219805398477006
 ```
 - We applying RidgeCV and find the alpha value.
 
-ElasticNet alpha value : 2194106.443272531
+ElasticNet alpha value : 2087804.706869493
 ****************************************
 
-- By applying Ridge Regression algorithm on 2 independent features, we got train & test scores with respect to the 0.875 & 0.915.
+- By applying Ridge Regression algorithm on 2 independent features, we got train & test scores with respect to the 0.876 & 0.915.
 
-ElasticNet Train Score : 0.8757857304930126
+ElasticNet Train Score : 0.8761425226115825
 ****************************************
 ElasticNet Test Score : 0.9154441355233094
 ****************************************
