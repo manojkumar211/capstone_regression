@@ -20,7 +20,7 @@
 
 ```
 - The Radio column having with 0.094 skewness. which is we consider as a normal distribution.Its a right side skewness. if we want to apply Transformation technique weneed to apply Log, Root or Boxcox transformation.
-- Radio and Sales having 85& of Correlation.
+- Radio and Sales having 58% of Correlation.
 
 ```
 
