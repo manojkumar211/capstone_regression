@@ -23,7 +23,7 @@ class data_des:
         correlation=df.corr()
 
     except Exception as e:
-        print(e)
+        raise Exception(f'Error find in data_des from data file :\n'+str(e))
 
     try:
 
@@ -43,7 +43,7 @@ class data_des:
                 self.correlation=correlation
 
             except Exception as e:
-                print(e)
+                raise Exception(f'Error find in data_des initializing from data file :\n'+str(e))
 
         try:
 
@@ -69,10 +69,10 @@ class data_des:
                 return self.correlation
             
         except Exception as e:
-            print(e)
+            raise Exception(f'Error find in data_des defining from data file :\n' + str(e))
         
     except Exception as e:
-        print(e)
+        raise Exception(f'Error find in class data_des from data file :\n' + str(e))
     
     
     

@@ -8,40 +8,55 @@ from data import df
 # Column TV
 
 class tv_column:
+        
+    try:
 
-    tv_type=df['TV'].dtype
-    tv_des=df['TV'].describe()
-    tv_nullvalue=df['TV'].isnull().sum()
-    tv_shape=df['TV'].shape
-    tv_skew=df['TV'].skew()
-    tv_std=df['TV'].std(ddof=0)
+        tv_type=df['TV'].dtype
+        tv_des=df['TV'].describe()
+        tv_nullvalue=df['TV'].isnull().sum()
+        tv_shape=df['TV'].shape
+        tv_skew=df['TV'].skew()
+        tv_std=df['TV'].std(ddof=0)
+
+    except Exception as e:
+        raise Exception(f'Error find in tv_column from eda :\n'+str(e))
 
     def __init__(self,tv_type,tv_des,tv_nullvalue,tv_shape,tv_skew,tv_std):
+            
+        try:
 
-        self.tv_type=tv_type
-        self.tv_des=tv_des
-        self.tv_nullvalue=tv_nullvalue
-        self.tv_shape=tv_shape
-        self.tv_skew=tv_skew
-        self.tv_std=tv_std
+            self.tv_type=tv_type
+            self.tv_des=tv_des
+            self.tv_nullvalue=tv_nullvalue
+            self.tv_shape=tv_shape
+            self.tv_skew=tv_skew
+            self.tv_std=tv_std
 
-    def tv_column_type(self):
-        return self.tv_type
+        except Exception as e:
+            raise Exception(f'Error find in tv_column initilizing from eda :\n'+str(e))
+        
+    try:
 
-    def tv_column_des(self):
-        return self.tv_des
+        def tv_column_type(self):
+            return self.tv_type
 
-    def tv_column_nullvalue(self):
-        return self.tv_nullvalue
+        def tv_column_des(self):
+            return self.tv_des
 
-    def tv_column_shape(self):
-        return self.tv_shape
+        def tv_column_nullvalue(self):
+            return self.tv_nullvalue
 
-    def tv_column_skew(self):
-        return self.tv_skew
+        def tv_column_shape(self):
+            return self.tv_shape
 
-    def tv_column_std(self):
-        return self.tv_std
+        def tv_column_skew(self):
+            return self.tv_skew
+
+        def tv_column_std(self):
+            return self.tv_std
+        
+    except Exception as e:
+        raise Exception(f'Error find in tv_column defining from eda :\n'+str(e))
     
 # Histo plot for TV column
     

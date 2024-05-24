@@ -31,7 +31,7 @@ class Linear_best_RandomState:
                 lr_best_test.append(lr.score(X_test,y_test))
 
         except Exception as e:
-            print('Best RandomState Error in Linear Regression :',e)
+            raise Exception(f'Best RandomState Error in Linear Regression :\n'+str(e))
 
 class Linear_regression(Linear_best_RandomState):
 
@@ -58,7 +58,7 @@ class Linear_regression(Linear_best_RandomState):
             lr_te_rmse=np.sqrt(mean_squared_error(y_test,y_te_pred)) # type: ignore
 
         except Exception as e:
-            print('Error find in Linear Regression :',e)
+            raise Exception(f'Error find in Linear Regression model :\n'+str(e))
 
         try:
 
@@ -85,7 +85,7 @@ class Linear_regression(Linear_best_RandomState):
                     self.lr_best_test=lr_best_test
                 
                 except Exception as e:
-                    print('Error find in Linear Regression at Initiate :',e)
+                    raise Exception(f'Error find in Linear Regression at Initiate :\n'+str(e))
 
             try:
 
@@ -124,13 +124,13 @@ class Linear_regression(Linear_best_RandomState):
                     return super().lr_best_test
                 
             except Exception as e:
-                print('Error find in Linear Regression at Defining level :',e)
+                raise Exception(f'Error find in Linear Regression at Defining level :\n'+str(e))
             
         except Exception as e:
-            print('Error find in Linear Regression at Initiate and Defining level :',e)
+            raise Exception(f'Error find in Linear Regression at Initiate and Defining level :\n'+str(e))
 
     except Exception as e:
-        print('Totall Error in Linear Regression :',e)
+        raise Exception(f'Totall Error in Linear Regression :\n'+str(e))
 
 
           
@@ -177,7 +177,7 @@ class best_degree:
             poly_best_degree_test.append(lr.score(X_test_poly,y_test))
 
     except Exception as e:
-        print('Best Degree Error in Polynomial Regression :',e)
+        raise Exception(f'Best Degree Error in Polynomial Regression :\n'+str(e))
     
 
 class Polynomial_regression(best_degree):
@@ -206,7 +206,7 @@ class Polynomial_regression(best_degree):
             poly_te_rsme=np.sqrt(mean_squared_error(y_test,poly_test_pred))
 
         except Exception as e:
-            print('Error find in Polynomial Regression :',e)
+            raise Exception(f'Error find in Polynomial Regression :\n'+str(e))
 
             
 
@@ -238,7 +238,7 @@ class Polynomial_regression(best_degree):
                     self.lr_best_test=lr_best_test
 
                 except Exception as e:
-                    print('Error find in Polynomial Regression at Initiat level :',e)
+                    raise Exception(f'Error find in Polynomial Regression at Initiat level :\n'+str(e))
 
             try:
                 
@@ -312,7 +312,7 @@ class Lassocv_regression:
             lr_best_test.append(lr.score(X_test,y_test))
 
     except Exception as e:
-        print('Best RandomState Error in Lasso Regression :',e)
+        raise Exception(f'Best RandomState Error in Lasso Regression :\n'+str(e))
 
   
     lasso_cv=LassoCV(alphas=None,max_iter=1000,cv=5)
@@ -332,7 +332,7 @@ class Lassocv_regression:
             return self.alpha_lasso_cv
         
     except Exception as e:
-        print('Alpha Error in Lasso Regression :',e)
+        raise Exception(f'Alpha Error in Lasso Regression :\n'+str(e))
 
 class Lasso_regression(Lassocv_regression):
 
@@ -357,7 +357,7 @@ class Lasso_regression(Lassocv_regression):
             lasso_te_rmse=np.sqrt(mean_squared_error(y_test,lasso_test_pred))
 
         except Exception as e:
-            print('Error find in Lasso Regression :',e)
+            raise Exception(f'Error find in Lasso Regression :\n'+str(e))
 
 
         try:
@@ -385,7 +385,7 @@ class Lasso_regression(Lassocv_regression):
                     self.lr_best_test=lr_best_test
 
                 except Exception as e:
-                    print('Error find in Lasso Regression at Initiate level :',e)
+                    raise Exception(f'Error find in Lasso Regression at Initiate level :\n'+str(e))
 
             try:
 
@@ -423,13 +423,13 @@ class Lasso_regression(Lassocv_regression):
                     return super().lr_best_test
                 
             except Exception as e:
-                print('Error find in Lasso Regression at Defining level :',e)
+                raise Exception(f'Error find in Lasso Regression at Defining level :\n'+str(e))
             
         except Exception as e:
-            print('Error find in Lasso Regression at Inintiat and Defining level :',e)
+            raise Exception(f'Error find in Lasso Regression at Inintiat and Defining level :\n'+str(e))
 
     except Exception as e:
-        print('Total Error in Lasso Regression :',e)
+        raise Exception(f'Total Error in Lasso Regression :\n'+str(e))
 
         
 
@@ -452,7 +452,7 @@ class Ridgecv_regression:
             lr_best_test.append(lr.score(X_test,y_test))
 
     except Exception as e:
-        print('Best RandomState Error in Ridge Regression :',e)
+        raise Exception(f'Best RandomState Error in Ridge Regression :\n'+str(e))
 
         
     alpha_ridgecv=np.random.uniform(low=0,high=10,size=(50,))
@@ -473,7 +473,7 @@ class Ridgecv_regression:
             return self.alpha_cv
         
     except Exception as e:
-        print('Alpha Error in Ridge Regression :',e)
+        raise Exception(f'Alpha Error in Ridge Regression :\n'+str(e))
         
 
 class Ridge_regression(Ridgecv_regression):
@@ -498,7 +498,7 @@ class Ridge_regression(Ridgecv_regression):
             ridge_test_rmse=np.sqrt(mean_squared_error(y_test,ridge_test_pred))
 
         except Exception as e:
-            print('Error find in Ridge Regression :',e)
+            raise Exception(f'Error find in Ridge Regression :\n'+str(e))
 
 
         try:
@@ -525,7 +525,7 @@ class Ridge_regression(Ridgecv_regression):
                     self.lr_best_test=lr_best_test
 
                 except Exception as e:
-                    print('Error find in Ridge Regression at Initiate level :',e)
+                    raise Exception(f'Error find in Ridge Regression at Initiate level :\n'+str(e))
 
             try:
 
@@ -561,13 +561,13 @@ class Ridge_regression(Ridgecv_regression):
                     return super().lr_best_test
                 
             except Exception as e:
-                print('Error find in Ridge Regression at Defining level :',e)
+                raise Exception(f'Error find in Ridge Regression at Defining level :\n'+str(e))
             
         except Exception as e:
-            print('Error find in Ridge Regression at Initiate and Defining level :',e)
+            raise Exception(f'Error find in Ridge Regression at Initiate and Defining level :\n'+str(e))
 
     except Exception as e:
-        print('Total Error in Ridge Regression :',e)
+        raise Exception(f'Total Error in Ridge Regression :\n'+str(e))
 
                                     
 # ElasticNet Regression Algorithm:-
@@ -588,7 +588,7 @@ class ElasticNet_cv:
             lr_best_test.append(lr.score(X_test,y_test))
 
     except Exception as e:
-        print('Best RandomSate Error in ElasticNet :',e)
+        raise Exception(f'Best RandomSate Error in ElasticNet :\n'+str(e))
 
     
     elastic_cv=ElasticNetCV(alphas=None,cv=5)
@@ -612,7 +612,7 @@ class ElasticNet_cv:
             return self.elastic_l1
         
     except Exception as e:
-        print('Alpha Error in ElasticNet :',e)
+        raise Exception(f'Alpha Error in ElasticNet :\n'+str(e))
 
 class ElasticNet_regression(ElasticNet_cv):
 
@@ -636,7 +636,7 @@ class ElasticNet_regression(ElasticNet_cv):
             elastic_test_rmse=np.sqrt(mean_squared_error(y_test,elastic_test_pred))
 
         except Exception as e:
-            print('Error find in ElasticNet Regression :',e)
+            raise Exception(f'Error find in ElasticNet Regression :\n'+str(e))
 
         try:
 
@@ -663,7 +663,7 @@ class ElasticNet_regression(ElasticNet_cv):
                     self.lr_best_test=lr_best_test
 
                 except Exception as e:
-                    print('Error find in ElasticNet at Initiate level :',e)
+                    raise Exception(f'Error find in ElasticNet at Initiate level :\n'+str(e))
 
             try:
 
@@ -702,13 +702,13 @@ class ElasticNet_regression(ElasticNet_cv):
                     return super().lr_best_test
                 
             except Exception as e:
-                print('Error find in ElasticNet at Defining level :',e)
+                raise Exception(f'Error find in ElasticNet at Defining level :\n'+str(e))
             
         except Exception as e:
-            print('Error find in ElasticNet at Initiate and Defining level :',e)
+            raise Exception(f'Error find in ElasticNet at Initiate and Defining level :\n'+str(e))
 
     except Exception as e:
-        print('Total Error in ElasticNet Regression :',e)
+        raise Exception(f'Total Error in ElasticNet Regression :\n'+str(e))
 
         
 

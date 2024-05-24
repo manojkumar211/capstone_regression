@@ -28,7 +28,7 @@ class vif_model:
         vif['features']=X.columns
 
     except Exception as e:
-        print(e)
+        raise Exception(f'Error find in vif_model from feature selection file :\n'+str(e))
 
     try:
 
@@ -40,7 +40,7 @@ class vif_model:
                 self.features=features
 
             except Exception as e:
-                print(e)
+                raise Exception(f'Error find in vif_model initilization from feature selection file :\n'+str(e))
 
         try:
 
@@ -50,10 +50,10 @@ class vif_model:
                 return self.features
             
         except Exception as e:
-            print(e)
+            raise Exception(f'Error find in vif_model defining from feature selection file :\n'+str(e))
         
     except Exception as e:
-        print(e)
+        raise Exception(f'Error find in vif_model main from feature selection file :\n'+str(e))
     
 print(vif_model.vif)
 
