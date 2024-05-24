@@ -211,3 +211,8 @@ Polynomial Test Score : 0.990922787724973
 ****************************************
 
 ```
+
+# Model Saving:-
+```
+- By using Pickle file, we saved the model and predicted with new data.
+```
