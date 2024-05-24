@@ -18,9 +18,7 @@ print("**"*20)
 print(newspaper_column.newspaper_skew) # type: ignore
 print("**"*20)
 print(df['newspaper'].skew()) # type: ignore
-
-print(round(4.615335331740764e-06))
-
+print("**"*20)
 print('linear model :',Linear_regression.linear_model) # type: ignore
 print("**"*20)
 print('linear train score :',Linear_regression.train_score) # type: ignore
@@ -69,3 +67,4 @@ print('ElasticNet Train Score :',ElasticNet_regression.elastic_tr_score) # type:
 print("**"*20)
 print('ElasticNet Test Score :',ElasticNet_regression.elastic_te_score)   # type: ignore
 print("**"*20)
+print("hello :",Polynomial_regression.lr_poly.predict([[56478,6356987]]).astype('float')) # type: ignore

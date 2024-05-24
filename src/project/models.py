@@ -156,7 +156,7 @@ class best_degree:
             lr_best_test.append(lr.score(X_test,y_test))
 
     except Exception as e:
-        print('Best RandomState Error in Polynomial Regression :',e)
+        raise Exception(f'Best RandomState Error in Polynomial Regression :\n',e)
 
 
     poly_best_degree_train = []
@@ -283,13 +283,13 @@ class Polynomial_regression(best_degree):
                     return super().lr_best_test
                 
             except Exception as e:
-                print('Error find in Polynomial Regression at Defining level :',e)
+                raise Exception(f'Error find in Polynomial Regression at Defining level :\n'+str(e))
             
         except Exception as e:
-            print('Error find in Polynomial Regression at Initiat and Defining level :',e)
+            raise Exception(f'Error find in Polynomial Regression at Initiat and Defining level :\n'+str(e))
 
     except Exception as e:
-        print('Total Error in Polynomial Regression :',e)
+        raise Exception(f'Total Error in Polynomial Regression :\n'+str(e))
 
         
     
