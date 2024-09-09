@@ -17,7 +17,7 @@ class News_IQR:
         lower_news=q1_news-(1.5*iqr_news)
 
     except Exception as e:
-        raise Exception(f'Error find in News_IQR from data cleaning :\,'+str(e))
+        raise Exception(f'Error find in News_IQR from data cleaning :\n,'+str(e))
         
     def __init__(self,q1_news,q2_news,q3_news,iqr_news,upper_news,lower_news):
             
@@ -49,7 +49,7 @@ class News_IQR:
             return self.lower_news
         
     except Exception as e:
-        raise Exception(f'Error find in News_IQR dening from data cleaning :\,'+str(e))
+        raise Exception(f'Error find in News_IQR dening from data cleaning :\n'+str(e))
     
 
 df[(df['newspaper']<News_IQR.upper_news) & (df['newspaper']>News_IQR.lower_news)] # type: ignore
